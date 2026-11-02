@@ -1,0 +1,35 @@
+# Dependencies and builds
+node_modules/
+dist/
+build/
+coverage/
+# Foundry outputs (dependencies policy decided when introduced)
+out/
+cache/
+broadcast/
+# Local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+keystore/
+# OS and editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# Additional local credentials and generated files
+.envrc
+.npmrc
+*.p12
+*.pfx
+*.keystore
+secrets/
+.secrets/
+wallet-backups/
+.nyc_output/
+.turbo/
+.vite/
+*.tsbuildinfo

@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+case "${2-}" in
+  https://github.com/fukuang-dev/web3-learning.git|git@github.com:fukuang-dev/web3-learning.git) ;;
+  *) printf '%s\n' 'Push blocked: only fukuang-dev/web3-learning on github.com is allowed.' >&2; exit 1 ;;
+esac
