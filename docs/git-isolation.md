@@ -35,3 +35,19 @@ git diff --cached --stat
 人工审查暂存文件，检查私钥、助记词、凭证、用户数据、大文件和产物；`.gitignore` 不能替代敏感信息检查，已跟踪文件也不会因新增忽略规则而自动移除。发现疑似秘密时暂停提交，不把秘密粘贴到日志；若曾泄露，先撤销凭证，再单独评估历史清理。
 
 不得 force push 或覆盖远程历史。远程非空、权限或分叉问题先调查。
+
+## 本机已启用的 CLI 认证
+
+2026-11-02 已通过 GitHub 官方设备登录和 Confirm access 完成授权，CLI 实际返回账号为 `fukuang-dev`。Homebrew 元数据下载失败后，使用 GitHub CLI 官方 v2.103.3 ARM64 发布包，并核对发布方 SHA256。二进制仅放在 `.git/tools/gh`，专属配置目录为 `.git/github-cli/`，不进入 Git 历史。
+
+仅本仓库的 `credential.https://github.com.helper` 配置指向该 CLI；先以空 helper 清除对此主机继承的 helper 列表，再使用项目专属配置。全局 Git 和公司仓库未修改。OAuth 权限范围由用户在 GitHub 页面确认；仅配置本仓库使用凭证不意味着 OAuth 令牌本身只拥有单仓库权限。
+
+在此本机仓库核对账号：
+
+```sh
+task_git_dir=$(git rev-parse --absolute-git-dir)
+GH_CONFIG_DIR="$task_git_dir/github-cli" "$task_git_dir/tools/gh" api user --jq .login
+git push
+```
+
+CLI 网络访问如需系统代理，应在当前终端继承已有代理环境。新克隆不会带上 `.git` 内的 CLI、认证信息或本地 Git 配置，需要重新安装/核对个人 CLI 并执行项目级配置；不要把认证目录复制进源码。

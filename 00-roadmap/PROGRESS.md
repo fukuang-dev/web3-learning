@@ -58,3 +58,7 @@
 ## 90 天计划与个人 Git 隔离（2026-11-02）
 
 新增 [90 天路线](../docs/learning-roadmap.md)，在既有 12 周安排后补 6 天复盘；加入 WalletConnect 和需设计/测试验收的测试代币退款。新增各后续模块入口，不提前实现课程。个人 GitHub 目标为 `fukuang-dev/web3-learning`，与公司 GitLab 隔离。此项属于仓库准备，0 个已掌握知识点及首课待交作业状态不变。
+
+## 个人 GitHub 发布验证（2026-11-02）
+
+已发布至 [fukuang-dev/web3-learning](https://github.com/fukuang-dev/web3-learning)，Public / main；首次推送的 37 个文件经独立公开克隆核对一致。仓库使用个人 noreply 身份与项目专属认证配置。README、90 天计划和后续模块入口已归档；这不计入学习完成，已掌握知识点仍为 0，下一步仍为首课独立作业和三道问答。

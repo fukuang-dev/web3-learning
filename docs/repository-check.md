@@ -29,3 +29,17 @@ GitHub 插件核实账号 `fukuang-dev`（ID 188038396），创建前同名仓�
 唯一 origin：`https://github.com/fukuang-dev/web3-learning.git`。正常提交、正常 push，不使用 force，不丢弃历史；本地 hooks 只作防误操作检查，不能替代凭证隔离或内容审阅。
 
 推送后必须重新读取远程 main 并与本地 HEAD 对照，再 fetch/clone 比较 Git tree、文件数及内容；未完成这些检查前不宣称远程一致。实际 SHA 在 Git 历史及本次任务验收回复中提供，避免把文档自身的 SHA 写进自身形成循环。
+
+## 首次发布的实际结果
+
+2026-11-02 完成 GitHub CLI 个人账号授权，核实 login 为 `fukuang-dev`，仅设置仓库本地 credential helper；原先 HTTPS 无凭证和 SSH 未认证的问题已解决。CLI 使用独立配置目录，未修改全局 Git 认证。正常执行 `git push -u origin main`，建立 main 对 origin/main 的跟踪。
+
+随后从公开 URL 独立匿名克隆，实际逐项断言通过：
+
+- 首次提交：`cba4982132f820509cfeba9cc80200de33b25dac`。
+- 首次文件树：`3caaa73a118e096ed32a211eec87ca17cf2a19c0`。
+- 本地与独立克隆 HEAD 相同，完整递归 tree 条目及文件模式相同。
+- 37 个跟踪文件的远程内容与本地逐字节相同，工作区干净。
+- GitHub 元数据确认 owner 为个人账号、可见性 public、默认分支 main；仓库 description 在创建页面确认与用户指定一致。
+
+本次追加验证记录后另作正常提交并推送，保留首次提交历史；最终 HEAD 和最终一致性检查见本次任务验收回复。没有 force push，没有访问公司 GitLab，没有新增学习者掌握或错题记录。
